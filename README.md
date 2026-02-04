@@ -1,5 +1,16 @@
 # Age & Ethnicity Disease Scoring System
 
+## Quick Reference: Data Sources & Scoring Logic
+
+- **Data Sources:** Monarch Initiative (disease/phenotype/inheritance), Orphanet (age of onset, rare disease), gnomAD (population allele frequencies)
+- **Key Functions:** See `scoring_engine.py`, `age_demographic_modifier.py`, and `monarch_client.py` for how data is fetched and used.
+- **Scoring Logic:**
+  - Raw HPO score (patient vs. disease phenotypes)
+  - Age, demographic, and inheritance modifiers (from external data)
+  - **Final Score = Raw HPO Score × Age Modifier × Demographic Modifier × Inheritance Modifier**
+
+For a detailed breakdown, see [SCORING_LOGIC.md](SCORING_LOGIC.md).
+
 This project provides a scalable, API-driven system for scoring the probability of genetic diseases based on patient phenotypes (HPO terms), age, ethnicity, and inheritance. It integrates live data from Monarch Initiative, gnomAD, and Orphanet, with no hardcoded disease information.
 
 ---
